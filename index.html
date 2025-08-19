@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Q2 Earnings – Interactive RevealJS Deck</title>
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@5/dist/reveal.css" />
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@5/dist/theme/serif.css" id="theme" />
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@5/plugin/highlight/monokai.css" />
+  <style>
+    .subtitle { font-size: 1.1rem; opacity: .8; }
+    .muted { opacity: .7; }
+    .kpi { font-size: 2.6rem; font-weight: 700; }
+  </style>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- Title Slide -->
+      <section>
+        <h2>Quarterly Earnings Report</h2>
+        <p class="subtitle">Modern, Interactive Briefing with RevealJS</p>
+        <p class="muted">Technical Consultant: <strong>Krish Rohilla</strong></p>
+        <p class="muted">Email: <strong>24f2003053@ds.study.iitm.ac.in</strong></p>
+        <small class="muted">Use ← → or Space to navigate. Press <kbd>s</kbd> for speaker notes.</small>
+        <aside class="notes">
+          Welcome the audience, set expectations: this deck demonstrates modern presentation capabilities applied to our quarterly results.
+          Mention navigation tips and that the deck works offline once assets are cached.
+        </aside>
+      </section>
+
+      <!-- KPI Slide with Fragments (animated elements) -->
+      <section>
+        <h3>Headline KPIs</h3>
+        <p class="fragment">Revenue <span class="kpi">₹ 4,320 Cr</span> <span class="muted">(+12% YoY)</span></p>
+        <p class="fragment">Net Income <span class="kpi">₹ 610 Cr</span> <span class="muted">(+8% YoY)</span></p>
+        <p class="fragment">EPS <span class="kpi">₹ 18.4</span> <span class="muted">(+7% YoY)</span></p>
+        <aside class="notes">
+          Use fragments to reveal one KPI at a time. Pause after each to provide commentary and give stakeholders time to absorb the information.
+        </aside>
+      </section>
+
+      <!-- Markdown Slide (at least one) -->
+      <section data-markdown>
+        <textarea data-template>
+### Demand Drivers (Markdown slide)
+
+- **Retail Banking**: deposit growth, card spend rebound
+- **Corporate Lending**: selective growth, focus on risk-adjusted return
+- **Fee Income**: wealth management & payments
+- **Digital**: lower cost-to-serve, higher cross‑sell
+
+> _Speaker cue_: call out that digital mix reduced unit costs by ~40% vs. branch.
+        </textarea>
+        <aside class="notes">This slide is authored in Markdown using the built-in plugin. Great for quick edits directly in the HTML file or external .md sources.</aside>
+      </section>
+
+      <!-- Code Sample with Syntax Highlighting -->
+      <section>
+        <h3>Code Sample: Computing YoY Growth</h3>
+        <pre><code class="language-python">def yoy_growth(current, prior):
+    """Return YoY growth (%) with safe divide."""
+    if prior == 0:
+        return float('inf')
+    return (current / prior - 1.0) * 100.0
+
+print(f"Revenue YoY: {yoy_growth(4320, 3855):.2f}%")
+</code></pre>
+        <aside class="notes">Demonstrate developer‑friendly slides with syntax highlighting via the Highlight plugin. Adjust theme as needed.</aside>
+      </section>
+
+      <!-- Math slide: financial formulas using MathJax -->
+      <section>
+        <h3>Financial Formulas</h3>
+        <p>Discounted Cash Flow (DCF):</p>
+        <p>\[ V_0 = \sum_{t=1}^{T} \frac{FCF_t}{(1 + r)^t} + \frac{TV_T}{(1+r)^T} \]</p>
+        <p>Return on Equity (ROE): \( ROE = \frac{Net\ Income}{Average\ Shareholders'\ Equity} \)</p>
+        <aside class="notes">Math is rendered using the MathJax 3 plugin. Use it for valuation models, risk equations, or capital adequacy ratios.</aside>
+      </section>
+
+      <!-- Interactive/structured slide with fragments and incremental bullets -->
+      <section>
+        <h3>Risk & Compliance Updates</h3>
+        <ul>
+          <li class="fragment">Credit risk: stable NPL ratios</li>
+          <li class="fragment">Market risk: VaR within limits</li>
+          <li class="fragment">Operational risk: enhanced monitoring</li>
+          <li class="fragment">Regulatory: Basel III buffers strong</li>
+        </ul>
+        <aside class="notes">Reveal list items as you speak. Keep each point crisp. Invite Q&A on specific risk metrics after the overview.</aside>
+      </section>
+
+      <!-- Closing / Contact -->
+      <section>
+        <h3>Thank You</h3>
+        <p>Questions? Reach me at <strong>24f2003053@ds.study.iitm.ac.in</strong></p>
+        <small class="muted">Press <kbd>Esc</kbd> to zoom the slide overview.</small>
+        <aside class="notes">Wrap up, open Q&A, and remind that the deck is available on GitHub Pages.</aside>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Reveal core -->
+  <script src="https://unpkg.com/reveal.js@5/dist/reveal.js"></script>
+  <!-- Plugins: Markdown, Notes, Highlight, Math -->
+  <script src="https://unpkg.com/reveal.js@5/plugin/markdown/markdown.js"></script>
+  <script src="https://unpkg.com/reveal.js@5/plugin/notes/notes.js"></script>
+  <script src="https://unpkg.com/reveal.js@5/plugin/highlight/highlight.js"></script>
+  <script src="https://unpkg.com/reveal.js@5/plugin/math/math.js"></script>
+
+  <script>
+    Reveal.initialize({
+      hash: true,
+      slideNumber: true,
+      plugins: [ RevealMarkdown, RevealNotes, RevealHighlight, RevealMath.KaTeX ],
+      // Use MathJax v3 via the math plugin; switch to KaTeX by changing the type above
+      math: {
+        mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js',
+        tex: {
+          inlineMath: [['\\(','\\)']],
+          displayMath: [['\\[','\\]']]
+        }
+      }
+    });
+  </script>
+</body>
+</html>
